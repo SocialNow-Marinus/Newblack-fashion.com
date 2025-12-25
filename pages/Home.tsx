@@ -5,17 +5,17 @@ import { IMAGES } from '../constants';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-white text-black">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-black text-white pt-32">
-        <div className="absolute inset-0 z-0 bg-black">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(178,145,90,0.12)_0%,_transparent_60%)]"></div>
-          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+    <div className="bg-black text-white">
+      {/* Hero Section - Pure Black */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-black pt-32">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(178,145,90,0.1)_0%,_transparent_60%)]"></div>
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent opacity-80"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-6 md:px-12">
           <div className="max-w-5xl">
-            <span className="block text-[12px] font-bold tracking-[0.6em] uppercase mb-8 text-bronze animate-pulse">
+            <span className="block text-[12px] font-bold tracking-[0.6em] uppercase mb-8 text-bronze">
               Fashion Industry Agency
             </span>
             <h1 className="text-4xl md:text-7xl font-light leading-[1.1] mb-12 italic">
@@ -37,8 +37,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="py-32 bg-white">
+      {/* Why Choose Section - White Editorial Section */}
+      <section className="py-32 bg-white text-black">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-12">
@@ -52,25 +52,27 @@ const Home: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-4">
                 <div className="space-y-4">
                   <div className="w-8 h-px bg-bronze"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest">Global Expansion</h4>
-                  <p className="text-sm text-black/50 leading-relaxed">Developing clear roadmaps for sustainable growth.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-black">Global Expansion</h4>
+                  <p className="text-sm text-black/40 leading-relaxed">Developing clear roadmaps for sustainable growth.</p>
                 </div>
                 <div className="space-y-4">
                   <div className="w-8 h-px bg-bronze"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest">Retail Network</h4>
-                  <p className="text-sm text-black/50 leading-relaxed">Accessing a vast international marketplace.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-black">Retail Network</h4>
+                  <p className="text-sm text-black/40 leading-relaxed">Accessing a vast international marketplace.</p>
                 </div>
               </div>
             </div>
-            <div className="relative group overflow-hidden">
-              <img src={IMAGES.MOROTAI_4} className="w-full h-auto shadow-2xl transition-transform duration-1000 group-hover:scale-105" alt="Style Image - Development" />
-              <div className="absolute inset-0 border-[20px] border-white/10 pointer-events-none"></div>
+            <div className="relative group overflow-hidden shadow-2xl bg-black">
+              <img src={IMAGES.MOROTAI_4} className="w-full h-auto opacity-90 transition-transform duration-1000 group-hover:scale-105" alt="Strategic Development" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Development & Access - Dark Mood */}
+      {/* Brand Bar - Smooth Seamless Loop on Black */}
+      <BrandSlider />
+
+      {/* Development & Access - Pure Black Content */}
       <section className="py-32 bg-black text-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-4xl mb-24">
@@ -84,7 +86,7 @@ const Home: React.FC = () => {
               { title: "Partnerships", desc: "Franchise and distribution solutions for new territories." },
               { title: "B2B Digital", desc: "Transform your wholesale operations for global visibility." }
             ].map((item, idx) => (
-              <div key={idx} className="group p-10 border border-white/5 hover:border-bronze transition-all bg-gradient-to-br from-white/[0.02] to-transparent">
+              <div key={idx} className="group p-10 border border-white/10 hover:border-bronze transition-all bg-black">
                 <div className="text-bronze font-bold text-xs mb-8">0{idx + 1}</div>
                 <h4 className="text-sm font-bold uppercase tracking-widest mb-6">{item.title}</h4>
                 <p className="text-white/40 text-sm leading-relaxed serif italic group-hover:text-white/70 transition-colors">{item.desc}</p>
@@ -94,33 +96,31 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Style Showcase */}
-      <section className="py-32 bg-white overflow-hidden">
+      {/* Showcase - White Editorial Section */}
+      <section className="py-32 bg-white text-black overflow-hidden border-t border-black/5">
         <div className="container mx-auto px-6 md:px-12">
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
               <div className="lg:col-span-5 space-y-12">
-                <h3 className="text-4xl md:text-5xl serif italic leading-tight">Creating a seamless <span className="font-bold not-italic underline decoration-bronze underline-offset-8">Omnichannel</span> experience.</h3>
+                <h3 className="text-4xl md:text-5xl serif italic leading-tight text-black">Creating a seamless <span className="font-bold not-italic underline decoration-bronze underline-offset-8">Omnichannel</span> experience.</h3>
                 <p className="text-black/50 text-xl leading-relaxed serif italic">
                   We leverage brand assets and USPs for global success, building long-term partnerships worldwide with local market expertise.
                 </p>
                 <div className="flex items-center gap-6">
                   <div className="h-12 w-px bg-black/10"></div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em]">Marketing Excellence & Data-Driven Strategy</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-black/40">Marketing Excellence & Data-Driven Strategy</p>
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <div className="relative">
-                   <img src={IMAGES.MOROTAI_HEADER} alt="Editorial Fashion" className="w-full h-auto shadow-2xl relative z-10" />
-                   <div className="absolute -top-10 -right-10 w-64 h-64 bg-light-surface -z-0"></div>
+                <div className="relative shadow-2xl bg-black">
+                   <img src={IMAGES.MOROTAI_HEADER} alt="Editorial Fashion" className="w-full h-auto relative z-10 opacity-90" />
+                   <div className="absolute -top-10 -right-10 w-64 h-64 bg-zinc-100 -z-0"></div>
                 </div>
               </div>
            </div>
         </div>
       </section>
 
-      <BrandSlider />
-
-      {/* Final Call to Action */}
+      {/* Final Call to Action - Absolute Black */}
       <section className="relative py-48 bg-black">
         <img src={IMAGES.MOROTAI_9} className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" alt="Background Texture" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>

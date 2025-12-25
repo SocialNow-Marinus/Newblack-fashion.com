@@ -1,16 +1,24 @@
 import React from 'react';
+import { IMAGES } from '../constants';
 
 const Contact: React.FC = () => {
   return (
-    <div className="pt-48 pb-32 bg-white text-black">
+    <div className="pt-48 pb-32 bg-white text-black min-h-screen">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mb-24">
+          <div className="mb-12">
+            <img 
+              src={IMAGES.LOGO_LIGHT} 
+              alt="NewBlack Fashion" 
+              className="h-12 w-auto object-contain"
+            />
+          </div>
           <h1 className="text-[10px] font-bold tracking-[0.4em] uppercase text-bronze mb-10">CONTACT & IMPRESSUM</h1>
-          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-black">Get in <span className="not-italic font-bold">Touch</span></h2>
+          <h2 className="text-5xl md:text-8xl serif italic leading-tight text-black">Get in <span className="not-italic font-bold">Touch</span></h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
-          {/* Company Details */}
+          {/* Bedrijfsgegevens */}
           <div className="space-y-16">
             <section>
               <h3 className="text-xs font-bold uppercase tracking-[0.4em] text-bronze mb-8">Headquarters</h3>
@@ -27,30 +35,30 @@ const Contact: React.FC = () => {
             </section>
 
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-[0.4em] text-bronze mb-8">Contact Information</h3>
+              <h3 className="text-xs font-bold uppercase tracking-[0.4em] text-bronze mb-8">Direct Contact</h3>
               <div className="space-y-4 text-xl serif italic text-black/80">
-                <p><span className="not-italic text-sm font-bold uppercase tracking-widest text-black/20 mr-4">Phone</span> +49 9305 9884888</p>
-                <p><span className="not-italic text-sm font-bold uppercase tracking-widest text-black/20 mr-4">Email</span> oeznur@newblack-fashion.com</p>
+                <p><span className="not-italic text-sm font-bold uppercase tracking-widest text-black/20 mr-4">T</span> +49 9305 9884888</p>
+                <p><span className="not-italic text-sm font-bold uppercase tracking-widest text-black/20 mr-4">E</span> oeznur@newblack-fashion.com</p>
               </div>
             </section>
           </div>
 
-          {/* Legal Disclosure */}
-          <div className="bg-light-surface p-12 border border-black/5">
-            <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-black mb-16 serif">Legal Disclosure (Impressum)</h2>
-            <div className="space-y-12 text-sm uppercase tracking-widest text-black/60 font-bold">
+          {/* Wettelijke informatie */}
+          <div className="bg-zinc-50 p-12 border border-black/5">
+            <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-black mb-16 serif">Legal Disclosure</h2>
+            <div className="space-y-12 text-sm uppercase tracking-widest text-black/40 font-bold">
               <section>
                 <h4 className="text-bronze mb-4">Commercial Register</h4>
                 <p>District Court Würzburg</p>
-                <p>Registration Number: HRB 12456</p>
+                <p>HRB 12456</p>
               </section>
               <section>
-                <h4 className="text-bronze mb-4">VAT Identification</h4>
+                <h4 className="text-bronze mb-4">Tax Identification</h4>
                 <p>VAT ID: DE-296035577</p>
               </section>
               <section className="pt-12 border-t border-black/10">
-                <p className="text-[10px] italic serif normal-case tracking-normal opacity-40">
-                  Responsibility for content according to German legal requirements.
+                <p className="text-[10px] italic serif normal-case tracking-normal opacity-60 text-black/40 leading-relaxed">
+                  Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV. NewBlack Fashion GmbH.
                 </p>
               </section>
             </div>
