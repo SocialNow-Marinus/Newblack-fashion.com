@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           <Link to="/" className="group block">
             <Logo 
               variant="white" 
-              className="h-5 md:h-6 transition-transform duration-500 group-hover:scale-105" 
+              className={`${isScrolled ? 'h-7 md:h-8' : 'h-8 md:h-10'} transition-all duration-500 group-hover:scale-105`} 
             />
           </Link>
         </div>
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
           </button>
           
           <div className="mb-20">
-            <Logo variant="white" className="h-8" />
+            <Logo variant="white" className="h-10" />
           </div>
 
           <nav className="flex flex-col space-y-8">

@@ -8,7 +8,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ variant = 'black', className = '' }) => {
   // variant 'white' = Logo for the black header (requires inversion to be white)
-  // variant 'black' = Logo for the white footer (remains dark/original)
+  // variant 'black' = Logo for the white footer (forced to pure black)
   const logoSrc = variant === 'white' ? IMAGES.LOGO_LIGHT : IMAGES.LOGO_DARK;
   
   return (
@@ -17,7 +17,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'black', className = '' }) => {
         src={logoSrc} 
         alt="NewBlack Fashion" 
         className={`block h-full w-auto object-contain transition-all duration-300 ${
-          variant === 'white' ? 'brightness-0 invert' : ''
+          variant === 'white' ? 'brightness-0 invert' : 'brightness-0'
         }`}
         style={{ display: 'block' }}
         loading="eager"
