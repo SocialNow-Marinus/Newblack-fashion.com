@@ -8,8 +8,6 @@ interface BrandLogoDisplayProps {
 }
 
 const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, light = false, className = "" }) => {
-  const brandName = brand.name.toUpperCase();
-
   // 1. Handle Brand Image Logo if available
   if (brand.logo) {
     return (
@@ -24,18 +22,7 @@ const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, light = fals
     );
   }
 
-  // 2. Special Typographic fallback for iconic brands without images
-  if (brandName === 'SUPREME') {
-    return (
-      <div className={`flex items-center justify-center ${className}`}>
-        <div className="bg-[#DA291C] text-white font-black italic px-5 py-2 text-xl md:text-2xl tracking-tighter leading-none shadow-sm" style={{ fontFamily: 'sans-serif' }}>
-          SUPREME
-        </div>
-      </div>
-    );
-  }
-
-  // 3. Default elegant typography for other references
+  // 2. Default elegant typography for text-based references
   return (
     <div className={`flex flex-col items-center justify-center text-center ${className}`}>
       <span 
