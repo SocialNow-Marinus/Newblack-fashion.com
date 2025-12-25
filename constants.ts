@@ -28,7 +28,6 @@ export const REFERENCES: Reference[] = [
   { name: 'BRUNOTTI', logo: IMAGES.BRUNOTTI_LIFESTYLE },
   { name: 'HELVETICA', logo: IMAGES.HELVETICA },
   { name: 'KHUJO', logo: IMAGES.KHUJO },
-  { name: 'SUPREME', isTextLogo: true },
   { name: 'REFRIGI', logo: IMAGES.REFRIGI },
   { name: 'NETWORK', logo: IMAGES.MASONRY }
 ];
