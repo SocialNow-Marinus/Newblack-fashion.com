@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { IMAGES } from '../constants';
 
@@ -71,16 +72,16 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Operational Excellence - White Detailed Section */}
+      {/* Operational Excellence - White Minimalist Section */}
       <section id="how-we-do-it" className="py-32 bg-white text-black scroll-mt-32">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-24">
-              <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-bronze mb-8">Operational Excellence</h2>
-              <h3 className="text-4xl md:text-6xl serif italic">How <span className="not-italic font-bold">We Do It</span></h3>
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-24">
+              <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-bronze mb-6">Operational Excellence</h2>
+              <h3 className="text-3xl md:text-5xl serif italic">Execution <span className="not-italic font-bold">& Delivery</span></h3>
             </div>
             
-            <div className="grid grid-cols-1 gap-12">
+            <div className="space-y-0">
               {[
                 "Omnichannel sales and marketing strategies",
                 "Digital wholesale solutions for international B2B growth",
@@ -90,12 +91,12 @@ const About: React.FC = () => {
               ].map((item, i) => (
                 <div 
                   key={i} 
-                  className="flex flex-col md:flex-row items-baseline gap-10 p-12 border border-black/5 hover:border-bronze transition-all duration-500 bg-zinc-50 group"
+                  className="flex flex-row items-center gap-8 py-10 border-b border-black/5 last:border-0 group"
                 >
-                  <span className="text-3xl md:text-5xl font-light text-black/10 group-hover:text-bronze transition-colors duration-500 serif italic">
-                    {i + 1}.
+                  <span className="text-xs font-bold tracking-[0.2em] text-black/20 group-hover:text-bronze transition-colors duration-500">
+                    0{i + 1}
                   </span>
-                  <span className="text-2xl md:text-3xl font-light text-black/70 serif italic group-hover:text-black transition-colors duration-500 leading-tight">
+                  <span className="text-lg md:text-xl font-light text-black/60 group-hover:text-black transition-colors duration-500 serif italic leading-tight">
                     {item}
                   </span>
                 </div>

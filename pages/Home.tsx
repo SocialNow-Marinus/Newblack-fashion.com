@@ -113,7 +113,6 @@ const Home: React.FC = () => {
               <div className="lg:col-span-7">
                 <div className="relative group">
                   <img src={IMAGES.MOROTAI_HEADER} className="w-full h-[60vh] object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" alt="Fashion Showroom" />
-                  <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-bronze/20 backdrop-blur-3xl hidden md:block"></div>
                 </div>
               </div>
            </div>
