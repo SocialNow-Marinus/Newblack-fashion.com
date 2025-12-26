@@ -18,6 +18,7 @@ const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, variant = 'd
           src={logoSrc} 
           alt={brand.name} 
           className="max-h-full max-w-full object-contain" 
+          loading="lazy"
           style={{ 
             opacity: 1,
             filter: 'none', 

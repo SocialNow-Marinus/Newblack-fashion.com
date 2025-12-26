@@ -49,6 +49,7 @@ const Services: React.FC = () => {
                 src={IMAGES.MOROTAI_9} 
                 className="w-full h-auto object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" 
                 alt="Retail Strategy" 
+                loading="lazy"
               />
               <div className="absolute inset-0 border-[20px] border-white/10 pointer-events-none"></div>
             </div>
@@ -65,6 +66,7 @@ const Services: React.FC = () => {
                 src={IMAGES.MOROTAI_8} 
                 className="w-full h-auto opacity-70 transition-transform duration-1000 group-hover:scale-105" 
                 alt="Global Network" 
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
             </div>

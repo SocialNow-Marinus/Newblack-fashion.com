@@ -65,6 +65,7 @@ const About: React.FC = () => {
                 src={IMAGES.ABOUT_GLOBAL_NETWORK} 
                 className="w-full h-auto object-cover opacity-80 transition-transform duration-1000 group-hover:scale-110" 
                 alt="Global Network Visualization" 
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
             </div>

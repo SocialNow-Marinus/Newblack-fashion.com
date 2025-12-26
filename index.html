@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="https://i.ibb.co/pVp5R13/Logo-NBF-Dark-schmal.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/ccLx1KM8/Logo-NBF-Light-schmal.png">
+    
     <style>
         :root {
             --brand-inky: #000000;
@@ -56,9 +61,18 @@
             background: var(--brand-bronze);
         }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+  }
+}
+</script>
 </head>
 <body class="overflow-x-hidden bg-black text-white">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
 </body>
 </html>

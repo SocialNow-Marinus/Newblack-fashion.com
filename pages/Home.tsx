@@ -64,7 +64,12 @@ const Home: React.FC = () => {
               </div>
             </div>
             <div className="relative group overflow-hidden shadow-2xl bg-black">
-              <img src={IMAGES.MOROTAI_4} className="w-full h-auto opacity-90 transition-transform duration-1000 group-hover:scale-105" alt="Strategic Development" />
+              <img 
+                src={IMAGES.MOROTAI_4} 
+                className="w-full h-auto opacity-90 transition-transform duration-1000 group-hover:scale-105" 
+                alt="Strategic Development" 
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -112,7 +117,12 @@ const Home: React.FC = () => {
               </div>
               <div className="lg:col-span-7">
                 <div className="relative group">
-                  <img src={IMAGES.MOROTAI_HEADER} className="w-full h-[60vh] object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" alt="Fashion Showroom" />
+                  <img 
+                    src={IMAGES.MOROTAI_HEADER} 
+                    className="w-full h-[60vh] object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" 
+                    alt="Fashion Showroom" 
+                    loading="lazy"
+                  />
                 </div>
               </div>
            </div>

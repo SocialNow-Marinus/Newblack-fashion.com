@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { REFERENCES, IMAGES } from '../constants';
 import BrandLogoDisplay from '../components/BrandLogoDisplay';
@@ -53,6 +54,7 @@ const Brands: React.FC = () => {
             src={IMAGES.MOROTAI_HEADER} 
             className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale" 
             alt="International Portfolio" 
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black"></div>
           <div className="relative z-10 text-center px-6">

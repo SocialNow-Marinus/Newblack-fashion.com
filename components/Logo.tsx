@@ -22,6 +22,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'white', className = '' }) => {
         className="block h-full w-auto object-contain transition-opacity duration-300"
         style={{ display: 'block' }}
         loading="eager"
+        // @ts-ignore
+        fetchpriority="high"
       />
     </div>
   );
