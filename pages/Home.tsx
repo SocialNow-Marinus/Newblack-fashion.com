@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BrandSlider from '../components/BrandSlider';
@@ -23,7 +24,7 @@ const Home: React.FC = () => {
               <span className="font-bold not-italic block mt-4">Global Business Solutions for the Fashion Industry</span>
             </h1>
             <p className="text-lg md:text-2xl max-w-2xl leading-relaxed mb-12 font-light text-white/80 serif italic">
-              A leading international fashion agency offering innovative B2B and B2C business solutions for brands seeking sustainable global expansion.
+              An innovative international fashion agency offering innovative B2B and B2C business solutions for brands seeking sustainable global expansion.
             </p>
             <div className="flex flex-wrap gap-6">
               <Link to="/services" className="bg-white text-black px-12 py-5 text-[11px] font-bold uppercase tracking-[0.4em] hover:bg-bronze hover:text-white transition-all duration-500 shadow-xl">
@@ -57,8 +58,8 @@ const Home: React.FC = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="w-8 h-px bg-bronze"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-black">Retail Network</h4>
-                  <p className="text-sm text-black/40 leading-relaxed">Accessing a vast international marketplace.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-black">INTERNATIONAL NETWORK</h4>
+                  <p className="text-sm text-black/40 leading-relaxed">International Retail, Franchise, and Wholesale Networks</p>
                 </div>
               </div>
             </div>
@@ -69,66 +70,53 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Brand Bar - Smooth Seamless Loop on Black */}
+      {/* Brand Bar */}
       <BrandSlider />
 
-      {/* Development & Access - Pure Black Content */}
-      <section className="py-32 bg-black text-white">
+      {/* Development & Access - White Content Section */}
+      <section className="py-32 bg-white text-black border-y border-black/5">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-4xl mb-24">
             <h2 className="text-4xl md:text-6xl serif italic mb-8">Development & <span className="not-italic font-bold">Access</span></h2>
-            <p className="text-white/40 uppercase tracking-[0.4em] text-[10px] font-bold">Digitize your wholesale operations</p>
+            <p className="text-black/40 uppercase tracking-[0.4em] text-[10px] font-bold">Digitize your wholesale operations</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               { title: "Marketplaces", desc: "Connect with top-tier international online marketplaces." },
               { title: "Logistics", desc: "Full access to our global fulfillment partner network." },
-              { title: "Partnerships", desc: "Franchise and distribution solutions for new territories." },
+              { title: "Partnerships", desc: "Accessing international retail and franchise partnerships." },
               { title: "B2B Digital", desc: "Transform your wholesale operations for global visibility." }
             ].map((item, idx) => (
-              <div key={idx} className="group p-10 border border-white/10 hover:border-bronze transition-all bg-black">
+              <div key={idx} className="group p-10 border border-black/5 hover:border-bronze transition-all bg-zinc-50">
                 <div className="text-bronze font-bold text-xs mb-8">0{idx + 1}</div>
                 <h4 className="text-sm font-bold uppercase tracking-widest mb-6">{item.title}</h4>
-                <p className="text-white/40 text-sm leading-relaxed serif italic group-hover:text-white/70 transition-colors">{item.desc}</p>
+                <p className="text-black/40 text-sm leading-relaxed serif italic group-hover:text-black/70 transition-colors">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Showcase - White Editorial Section */}
-      <section className="py-32 bg-white text-black overflow-hidden border-t border-black/5">
+      {/* Showcase Section */}
+      <section className="py-32 bg-black text-white">
         <div className="container mx-auto px-6 md:px-12">
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
               <div className="lg:col-span-5 space-y-12">
-                <h3 className="text-4xl md:text-5xl serif italic leading-tight text-black">Creating a seamless <span className="font-bold not-italic underline decoration-bronze underline-offset-8">Omnichannel</span> experience.</h3>
-                <p className="text-black/50 text-xl leading-relaxed serif italic">
+                <h3 className="text-4xl md:text-5xl serif italic leading-tight">Creating a seamless <span className="font-bold not-italic underline decoration-bronze underline-offset-8">Omnichannel</span> experience.</h3>
+                <p className="text-white/50 text-xl leading-relaxed serif italic">
                   We leverage brand assets and USPs for global success, building long-term partnerships worldwide with local market expertise.
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="h-12 w-px bg-black/10"></div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-black/40">Marketing Excellence & Data-Driven Strategy</p>
-                </div>
+                <Link to="/about" className="inline-block text-[11px] font-bold uppercase tracking-[0.3em] text-bronze border-b border-bronze/30 pb-2 hover:text-white hover:border-white transition-all">
+                  Learn About Our Approach
+                </Link>
               </div>
               <div className="lg:col-span-7">
-                <div className="relative shadow-2xl bg-black">
-                   <img src={IMAGES.MOROTAI_HEADER} alt="Editorial Fashion" className="w-full h-auto relative z-10 opacity-90" />
-                   <div className="absolute -top-10 -right-10 w-64 h-64 bg-zinc-100 -z-0"></div>
+                <div className="relative group">
+                  <img src={IMAGES.MOROTAI_HEADER} className="w-full h-[60vh] object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" alt="Fashion Showroom" />
+                  <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-bronze/20 backdrop-blur-3xl hidden md:block"></div>
                 </div>
               </div>
            </div>
-        </div>
-      </section>
-
-      {/* Final Call to Action - Absolute Black */}
-      <section className="relative py-48 bg-black">
-        <img src={IMAGES.MOROTAI_9} className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" alt="Background Texture" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-        <div className="container relative z-10 mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-7xl serif italic text-white mb-16">Ready to expand your <span className="font-bold not-italic">Global Footprint?</span></h2>
-          <Link to="/contact" className="inline-block bg-bronze text-white px-16 py-6 text-[11px] font-bold uppercase tracking-[0.5em] hover:bg-white hover:text-black transition-all duration-500">
-            Let's Collaborate
-          </Link>
         </div>
       </section>
     </div>

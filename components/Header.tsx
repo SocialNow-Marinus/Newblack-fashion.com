@@ -2,9 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
+interface SubLink {
+  name: string;
+  hash: string;
+}
+
+interface NavLink {
+  name: string;
+  path: string;
+  subLinks?: SubLink[];
+}
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   const isWhitePage = location.pathname === '/contact';
@@ -15,7 +27,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Strict scroll lock for mobile menu
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.documentElement.style.overflow = 'hidden';
@@ -24,17 +35,42 @@ const Header: React.FC = () => {
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     }
-    return () => {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    };
   }, [isMobileMenuOpen]);
 
-  const navLinks = [
-    { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'References', path: '/references' },
-    { name: 'Contact', path: '/contact' },
+  const navLinks: NavLink[] = [
+    { 
+      name: 'About Us', 
+      path: '/about',
+      subLinks: [
+        { name: 'Our Approach', hash: '#approach' },
+        { name: 'What We Do', hash: '#what-we-do' },
+        { name: 'Operational Excellence', hash: '#how-we-do-it' }
+      ]
+    },
+    { 
+      name: 'Services', 
+      path: '/services',
+      subLinks: [
+        { name: 'DTC Solutions', hash: '#dtc' },
+        { name: 'B2B Services', hash: '#b2b' }
+      ]
+    },
+    { 
+      name: 'References', 
+      path: '/references',
+      subLinks: [
+        { name: 'Brand Portfolio', hash: '#portfolio' },
+        { name: 'Global Excellence', hash: '#excellence' }
+      ]
+    },
+    { 
+      name: 'Contact', 
+      path: '/contact',
+      subLinks: [
+        { name: 'Headquarters', hash: '#headquarters' },
+        { name: 'Legal Disclosure', hash: '#legal' }
+      ]
+    },
   ];
 
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -74,15 +110,52 @@ const Header: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-10 flex-1 justify-end">
             {navLinks.map((link) => (
-              <Link 
+              <div 
                 key={link.path} 
-                to={link.path} 
-                className={`text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-300 hover:text-bronze ${
-                  isWhitePage ? 'text-black' : 'text-white'
-                }`}
+                className="relative group py-4"
+                onMouseEnter={() => setActiveDropdown(link.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {link.name}
-              </Link>
+                <Link 
+                  to={link.path} 
+                  className={`flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-300 hover:text-bronze ${
+                    isWhitePage ? 'text-black' : 'text-white'
+                  }`}
+                >
+                  {link.name}
+                  {link.subLinks && (
+                    <svg className={`w-2 h-2 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </Link>
+
+                {/* Sub Menu Dropdown */}
+                {link.subLinks && (
+                  <div className={`absolute top-full right-0 pt-4 transition-all duration-300 ease-out transform ${
+                    activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'
+                  }`}>
+                    <div className={`w-64 p-6 shadow-2xl border ${
+                      isWhitePage ? 'bg-white border-black/5' : 'bg-black border-white/10'
+                    }`}>
+                      <ul className="space-y-4">
+                        {link.subLinks.map((sub) => (
+                          <li key={sub.hash}>
+                            <Link 
+                              to={`${link.path}${sub.hash}`}
+                              className={`block text-[9px] font-bold tracking-[0.2em] uppercase transition-colors hover:text-bronze ${
+                                isWhitePage ? 'text-black/60' : 'text-white/40'
+                              }`}
+                            >
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
             <button className={`${isWhitePage ? 'text-black' : 'text-white'} hover:text-bronze transition-colors pl-4`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,14 +179,13 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Menu - A Separate Page Experience */}
+      {/* Mobile Menu */}
       <div 
         className={`fixed inset-0 bg-[#000000] z-[10000] transition-all duration-500 ease-out ${
           isMobileMenuOpen ? 'translate-x-0 opacity-100 visible' : 'translate-x-full opacity-0 invisible'
         }`}
       >
         <div className="flex flex-col h-full w-full">
-          {/* Menu Header Area */}
           <div className="flex justify-between items-center w-full px-6 py-5 h-20 md:h-24">
             <Logo variant="white" className="h-7" />
             <button 
@@ -127,8 +199,7 @@ const Header: React.FC = () => {
             </button>
           </div>
           
-          {/* Centered Links Area */}
-          <nav className="flex-grow flex flex-col items-center justify-center space-y-10 text-center px-10">
+          <nav className="flex-grow flex flex-col items-center justify-center space-y-10 text-center px-10 overflow-y-auto">
             {navLinks.map((link, idx) => (
               <div 
                 key={link.path}
@@ -148,7 +219,6 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Menu Footer Area */}
           <div className={`w-full text-center px-6 pb-12 transition-all duration-1000 delay-500 ${
             isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>

@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
           {/* Bedrijfsgegevens */}
-          <div className="space-y-16">
+          <div id="headquarters" className="space-y-16 scroll-mt-32">
             <section>
               <h3 className="text-xs font-bold uppercase tracking-[0.4em] text-bronze mb-8">Headquarters</h3>
               <div className="text-2xl serif italic text-black/80 leading-relaxed">
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Wettelijke informatie */}
-          <div className="bg-zinc-50 p-12 border border-black/5">
+          <div id="legal" className="bg-zinc-50 p-12 border border-black/5 scroll-mt-32">
             <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-black mb-16 serif">Legal Disclosure</h2>
             <div className="space-y-12 text-sm uppercase tracking-widest text-black/40 font-bold">
               <section>

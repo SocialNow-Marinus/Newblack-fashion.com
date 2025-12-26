@@ -3,18 +3,19 @@ import { Reference } from '../constants';
 
 interface BrandLogoDisplayProps {
   brand: Reference;
+  variant?: 'light' | 'dark'; // 'light' means the logo is on a light background (so use logoBlack), 'dark' means it's on a dark background (so use logoWhite)
   className?: string;
 }
 
-const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, className = "" }) => {
-  // Voor partnerlogo's (zoals Scotch & Soda, etc.):
-  // 1. ALTIJD een zwarte achtergrond (#000000)
-  // 2. ABSOLUUT GEEN filters of inversie op partner assets
-  if (brand.logo) {
+const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, variant = 'dark', className = "" }) => {
+  // Use logoWhite for dark backgrounds and logoBlack for light backgrounds as requested
+  const logoSrc = variant === 'dark' ? brand.logoWhite : brand.logoBlack;
+
+  if (logoSrc) {
     return (
-      <div className={`flex items-center justify-center w-full h-full bg-[#000000] ${className}`}>
+      <div className={`flex items-center justify-center w-full h-full ${variant === 'dark' ? 'bg-[#000000]' : 'bg-transparent'} ${className}`}>
         <img 
-          src={brand.logo} 
+          src={logoSrc} 
           alt={brand.name} 
           className="max-h-full max-w-full object-contain" 
           style={{ 
@@ -27,10 +28,10 @@ const BrandLogoDisplay: React.FC<BrandLogoDisplayProps> = ({ brand, className = 
     );
   }
 
-  // Fallback tekst-logo
+  // Fallback text-logo if no image is available
   return (
-    <div className={`flex flex-col items-center justify-center text-center ${className} bg-[#000000] p-4`}>
-      <span className="text-xl md:text-2xl serif italic leading-none text-white">
+    <div className={`flex flex-col items-center justify-center text-center ${className} ${variant === 'dark' ? 'bg-[#000000]' : 'bg-transparent'} p-4`}>
+      <span className={`text-xl md:text-2xl serif italic leading-none ${variant === 'dark' ? 'text-white' : 'text-black'}`}>
         {brand.name.split(' ')[0]}
         {brand.name.split(' ').length > 1 && (
           <span className="not-italic font-bold ml-1">{brand.name.split(' ').slice(1).join(' ')}</span>

@@ -25,8 +25,8 @@ const Brands: React.FC = () => {
            <div className="w-12 h-px bg-bronze mx-auto"></div>
         </div>
 
-        {/* References Grid - Elke logo container geforceerd zwart */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
+        {/* References Grid */}
+        <div id="portfolio" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-40 scroll-mt-32">
           {REFERENCES.map((reference, i) => (
             <div 
               key={i} 
@@ -34,7 +34,6 @@ const Brands: React.FC = () => {
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-bronze transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
               
-              {/* Logo container altijd zwart per instructie */}
               <div className="h-40 w-full flex items-center justify-center bg-black">
                 <BrandLogoDisplay brand={reference} />
               </div>
@@ -49,7 +48,7 @@ const Brands: React.FC = () => {
         </div>
 
         {/* Visual Banner */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden border border-white/10 bg-black">
+        <section id="excellence" className="relative h-[60vh] flex items-center justify-center overflow-hidden border border-white/10 bg-black scroll-mt-32">
           <img 
             src={IMAGES.MOROTAI_HEADER} 
             className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale" 

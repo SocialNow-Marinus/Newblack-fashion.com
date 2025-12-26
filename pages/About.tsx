@@ -3,21 +3,29 @@ import { IMAGES } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <div className="pt-48 pb-32 bg-black text-white">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-4xl mb-32">
-          <h1 className="text-[10px] font-bold tracking-[0.4em] uppercase text-bronze mb-10">ABOUT NEWBLACK FASHION</h1>
-          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-16">
-            The <span className="not-italic font-bold">Agency</span>
-          </h2>
-          <p className="text-2xl text-white/70 leading-relaxed italic serif">
-            NewBlack Fashion is an international fashion consultancy and distribution agency specializing in brand development, market expansion, and omnichannel growth strategies.
-          </p>
+    <div className="bg-black">
+      {/* Hero Section - Pure Black */}
+      <section className="pt-64 pb-32 bg-black text-white">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl">
+            <h1 className="text-[10px] font-bold tracking-[0.4em] uppercase text-bronze mb-10">ABOUT NEWBLACK FASHION</h1>
+            <h2 className="text-5xl md:text-8xl serif italic leading-[1.1] mb-16">
+              The <span className="not-italic font-bold">Agency</span>
+            </h2>
+            <p className="text-2xl md:text-3xl text-white/70 leading-relaxed italic serif max-w-3xl">
+              NewBlack Fashion is an international fashion consultancy and distribution agency specializing in brand development, market expansion, and omnichannel growth strategies.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Our Approach */}
-        <section className="mb-40 py-24 border-y border-white/5">
-          <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-white/30 mb-20 text-center">Our Approach</h2>
+      {/* Our Approach - White Editorial Section */}
+      <section id="approach" className="py-32 bg-white text-black scroll-mt-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col lg:flex-row gap-20 items-baseline mb-24">
+            <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-bronze shrink-0">Our Approach</h2>
+            <div className="h-px bg-black/10 flex-grow hidden lg:block"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24">
             {[
               { title: "Market Potential Analysis", desc: "Identifying growth opportunities across international markets." },
@@ -25,35 +33,54 @@ const About: React.FC = () => {
               { title: "Growth & Scaling", desc: "Leveraging brand assets and USPs for global success." },
               { title: "International Focus", desc: "Operating globally with strong local expertise." },
               { title: "Marketing Excellence", desc: "Creating high-impact, data-driven marketing strategies." },
-              { title: "Global Network", desc: "Building long-term partnerships worldwide." }
+              { title: "Global Network", desc: "Accessing international retail and franchise partnerships." }
             ].map((item, i) => (
-              <div key={i} className="space-y-4">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">{item.title}</h3>
-                <p className="text-white/40 serif italic">{item.desc}</p>
+              <div key={i} className="group">
+                <div className="text-bronze font-bold text-xs mb-6 opacity-30 group-hover:opacity-100 transition-opacity">0{i + 1}</div>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-black mb-4">{item.title}</h3>
+                <p className="text-black/50 serif italic leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* What We Do */}
-        <section className="mb-40 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="order-2 lg:order-1 space-y-12">
-            <h2 className="text-4xl serif italic text-white">What <span className="not-italic font-bold">We Do</span></h2>
-            <p className="text-white/50 text-xl serif italic leading-relaxed">
-              We develop and manage brand presence and brand experience in multiple international markets. NewBlack Fashion supports fashion brands in their global expansion, providing direct access to a strong network of online and offline retailers.
-            </p>
-            <div className="w-16 h-px bg-bronze"></div>
+      {/* What We Do - Black Grid Section */}
+      <section id="what-we-do" className="py-32 bg-black text-white scroll-mt-32 border-y border-white/5">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="space-y-12">
+              <h2 className="text-4xl md:text-6xl serif italic">What <span className="not-italic font-bold">We Do</span></h2>
+              <p className="text-white/50 text-xl md:text-2xl serif italic leading-relaxed">
+                We develop and manage brand presence and brand experience in multiple international markets. NewBlack Fashion supports fashion brands in their global expansion, providing direct access to a strong network of online and offline retailers.
+              </p>
+              <div className="flex items-center gap-8 pt-4">
+                <div className="w-16 h-px bg-bronze"></div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40">Global Distribution Expertise</span>
+              </div>
+            </div>
+            <div className="relative group overflow-hidden shadow-2xl">
+              <img 
+                src={IMAGES.ABOUT_GLOBAL_NETWORK} 
+                className="w-full h-auto object-cover opacity-80 transition-transform duration-1000 group-hover:scale-110" 
+                alt="Global Network Visualization" 
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+            </div>
           </div>
-          <div className="order-1 lg:order-2 aspect-[4/3] overflow-hidden shadow-2xl">
-            <img src={IMAGES.MOROTAI_4} className="w-full h-full object-cover opacity-80" alt="Global Network" />
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* How We Do It - Forced Black */}
-        <section className="bg-black text-white p-12 md:p-32 border border-white/10 rounded-sm mb-40">
-          <div className="max-w-3xl">
-            <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-bronze mb-12 italic serif">How We Do It</h2>
-            <ul className="space-y-10">
+      {/* Operational Excellence - White Detailed Section */}
+      <section id="how-we-do-it" className="py-32 bg-white text-black scroll-mt-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-24">
+              <h2 className="text-[11px] font-bold tracking-[0.5em] uppercase text-bronze mb-8">Operational Excellence</h2>
+              <h3 className="text-4xl md:text-6xl serif italic">How <span className="not-italic font-bold">We Do It</span></h3>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-12">
               {[
                 "Omnichannel sales and marketing strategies",
                 "Digital wholesale solutions for international B2B growth",
@@ -61,15 +88,35 @@ const About: React.FC = () => {
                 "Connection to local fulfillment and logistics partners",
                 "Consulting retailers on brand positioning and assortment strategy"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-8 group">
-                  <span className="text-bronze font-bold text-lg">0{i+1}</span>
-                  <span className="text-xl md:text-2xl font-light text-white/80 serif italic">{item}</span>
-                </li>
+                <div 
+                  key={i} 
+                  className="flex flex-col md:flex-row items-baseline gap-10 p-12 border border-black/5 hover:border-bronze transition-all duration-500 bg-zinc-50 group"
+                >
+                  <span className="text-3xl md:text-5xl font-light text-black/10 group-hover:text-bronze transition-colors duration-500 serif italic">
+                    {i + 1}.
+                  </span>
+                  <span className="text-2xl md:text-3xl font-light text-black/70 serif italic group-hover:text-black transition-colors duration-500 leading-tight">
+                    {item}
+                  </span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* Focus Statement - Pure Black */}
+      <section className="py-48 bg-black text-center border-t border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto space-y-12">
+            <div className="w-px h-24 bg-bronze mx-auto opacity-50"></div>
+            <h2 className="text-3xl md:text-5xl serif italic text-white/90 leading-relaxed">
+              "We act as the bridge between <span className="font-bold not-italic text-white">visionary brands</span> and the <span className="font-bold not-italic text-white">global marketplace.</span>"
+            </h2>
+            <div className="w-px h-24 bg-bronze mx-auto opacity-50"></div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
