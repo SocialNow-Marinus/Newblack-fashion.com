@@ -85,20 +85,8 @@ const Header: React.FC = () => {
         } ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} backdrop-blur-md`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center h-12 md:h-16">
-          {/* Desktop Title */}
-          <div className="hidden lg:flex flex-1 items-center">
-            <Link 
-              to="/" 
-              className={`text-[9px] font-bold tracking-[0.2em] uppercase transition-colors ${
-                isWhitePage ? 'text-black/40 hover:text-black' : 'text-white/40 hover:text-white'
-              }`}
-            >
-              International Fashion Agency
-            </Link>
-          </div>
-
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center justify-center">
+          {/* Left: Logo */}
+          <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="group block">
               <Logo 
                 variant={isWhitePage ? "black" : "white"} 
@@ -107,8 +95,8 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-10 flex-1 justify-end">
+          {/* Right: Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <div 
                 key={link.path} 
@@ -164,8 +152,8 @@ const Header: React.FC = () => {
             </button>
           </nav>
 
-          {/* Hamburger Icon */}
-          <div className="flex md:hidden flex-1 justify-end">
+          {/* Hamburger Icon (Mobile) */}
+          <div className="flex md:hidden">
             <button 
               className="p-2 -mr-2 outline-none"
               onClick={() => setIsMobileMenuOpen(true)}
